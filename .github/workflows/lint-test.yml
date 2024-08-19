@@ -1,0 +1,20 @@
+name: Run tests
+
+on: [push]
+
+env:
+  node-version: 22
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ env.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run test
