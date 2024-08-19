@@ -14,4 +14,5 @@ npm test
 ## Test
 
 In `working-time-fake.test.js` the fake timers are setup before the first require/import of the `lru-cache` package. The test will pass.
+
 In `issue-time-fake.test.js` the fake timers are setup after the first require/import of the `lru-cache` package. The test will fail.
